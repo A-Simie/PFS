@@ -14,6 +14,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { budgetSchema, type BudgetSchemaType } from '../../schemas/budget.schema';
 import { EXPENSE_CATEGORIES } from '../../constants/categories';
+import { exportBudgetsCSV } from '../../utils/csvExport';
+import { useNotifications } from '../../store/NotificationContext';
 
 const ICON_MAP: Record<string, typeof Home> = {
   home: Home,
@@ -42,6 +44,7 @@ function getProgressColor(status: BudgetStatus): string {
 
 export default function Budgets() {
   const { transactions, budgets, addBudget, updateBudget, deleteBudget, isLoading, error } = useFinance();
+  const { addNotification } = useNotifications();
   const [showTxnModal, setShowTxnModal] = useState(false);
   const [showBudgetModal, setShowBudgetModal] = useState(false);
   const [editingBudget, setEditingBudget] = useState<Budget | null>(null);
@@ -127,7 +130,13 @@ export default function Budgets() {
               <Plus size={18} />
               Add Transaction
             </button>
-            <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-bg-panel border border-border rounded-xl text-sm font-medium hover:bg-bg-dark transition-colors">
+            <button 
+              onClick={() => {
+                exportBudgetsCSV(budgets);
+                addNotification('Export Successful', 'Your budget data has been downloaded as CSV.', 'success');
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-bg-panel border border-border rounded-xl text-sm font-medium hover:bg-bg-dark transition-colors"
+            >
               <Download size={16} />
               Export
             </button>

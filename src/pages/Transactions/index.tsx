@@ -10,6 +10,7 @@ import { AddTransactionModal } from '../../features/transactions/AddTransactionM
 import { formatCurrency } from '../../utils/formatCurrency';
 import { calculateTotalIncome, calculateTotalExpenses, calculateNetBalance } from '../../utils/calculateTotals';
 import type { Transaction, TransactionType } from '../../types';
+import { exportTransactionsCSV } from '../../utils/csvExport';
 
 type TabFilter = 'all' | TransactionType | 'recurring';
 
@@ -114,7 +115,13 @@ export default function Transactions() {
             <p className="text-text-muted text-sm mt-1">Track your spending and income across all accounts.</p>
           </div>
           <div className="flex gap-3">
-            <button className="inline-flex items-center gap-2 px-4 py-2.5 bg-bg-panel border border-border rounded-xl text-sm font-medium hover:bg-bg-dark transition-colors">
+            <button 
+              onClick={() => {
+                exportTransactionsCSV(filtered);
+                addNotification('Export Successful', 'Your transactions have been downloaded as CSV.', 'success');
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-bg-panel border border-border rounded-xl text-sm font-medium hover:bg-bg-dark transition-colors"
+            >
               <Download size={16} />
               Export
             </button>
