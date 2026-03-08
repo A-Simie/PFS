@@ -1,0 +1,248 @@
+{
+  "transactions": [
+    {
+      "id": "txn-001",
+      "type": "expense",
+      "amount": 1500,
+      "description": "Monthly Rent",
+      "category": "Housing",
+      "date": "2026-03-01",
+      "note": "Rent for March"
+    },
+    {
+      "id": "txn-002",
+      "type": "income",
+      "amount": 4250,
+      "description": "Salary Deposit",
+      "category": "Salary",
+      "date": "2026-03-05",
+      "note": ""
+    },
+    {
+      "id": "txn-003",
+      "type": "expense",
+      "amount": 124.50,
+      "description": "Whole Foods Market",
+      "category": "Groceries",
+      "date": "2026-03-04",
+      "note": "Weekly groceries"
+    },
+    {
+      "id": "txn-004",
+      "type": "expense",
+      "amount": 19.99,
+      "description": "Netflix Subscription",
+      "category": "Entertainment",
+      "date": "2026-03-03",
+      "note": "Monthly streaming"
+    },
+    {
+      "id": "txn-005",
+      "type": "expense",
+      "amount": 55.20,
+      "description": "Shell Gas Station",
+      "category": "Transportation",
+      "date": "2026-03-02",
+      "note": "Vehicle refuel"
+    },
+    {
+      "id": "txn-006",
+      "type": "expense",
+      "amount": 52.99,
+      "description": "Adobe Creative Cloud",
+      "category": "Software",
+      "date": "2026-02-28",
+      "note": "Monthly subscription"
+    },
+    {
+      "id": "txn-007",
+      "type": "income",
+      "amount": 2450,
+      "description": "Stripe Payout",
+      "category": "Freelance",
+      "date": "2026-02-25",
+      "note": "Freelance Project #82"
+    },
+    {
+      "id": "txn-008",
+      "type": "expense",
+      "amount": 142.15,
+      "description": "Whole Foods Market",
+      "category": "Groceries",
+      "date": "2026-02-22",
+      "note": "Weekly groceries"
+    },
+    {
+      "id": "txn-009",
+      "type": "expense",
+      "amount": 65.00,
+      "description": "Shell Gas Station",
+      "category": "Transportation",
+      "date": "2026-02-20",
+      "note": "Vehicle refuel"
+    },
+    {
+      "id": "txn-010",
+      "type": "expense",
+      "amount": 9.99,
+      "description": "Apple Store",
+      "category": "Technology",
+      "date": "2026-02-18",
+      "note": "iCloud Storage"
+    },
+    {
+      "id": "txn-011",
+      "type": "income",
+      "amount": 4250,
+      "description": "Salary Deposit",
+      "category": "Salary",
+      "date": "2026-02-05",
+      "note": ""
+    },
+    {
+      "id": "txn-012",
+      "type": "expense",
+      "amount": 1500,
+      "description": "Monthly Rent",
+      "category": "Housing",
+      "date": "2026-02-01",
+      "note": "Rent for February"
+    },
+    {
+      "id": "txn-013",
+      "type": "expense",
+      "amount": 250,
+      "description": "Concert Tickets",
+      "category": "Entertainment",
+      "date": "2026-01-25",
+      "note": "Winter concert"
+    },
+    {
+      "id": "txn-014",
+      "type": "income",
+      "amount": 1750,
+      "description": "Freelance Design Work",
+      "category": "Freelance",
+      "date": "2026-01-20",
+      "note": "Logo rebrand project"
+    },
+    {
+      "id": "txn-015",
+      "type": "expense",
+      "amount": 395,
+      "description": "Electric Bill",
+      "category": "Utilities",
+      "date": "2026-03-02",
+      "note": "Power, Water, Internet"
+    },
+    {
+      "id": "txn-016",
+      "type": "expense",
+      "amount": 184.50,
+      "description": "Various Subscriptions",
+      "category": "Software",
+      "date": "2026-03-01",
+      "note": "12 active services"
+    },
+    {
+      "id": "txn-017",
+      "type": "expense",
+      "amount": 120,
+      "description": "Uber Rides",
+      "category": "Transportation",
+      "date": "2026-01-15",
+      "note": ""
+    },
+    {
+      "id": "txn-018",
+      "type": "income",
+      "amount": 4250,
+      "description": "Salary Deposit",
+      "category": "Salary",
+      "date": "2026-01-05",
+      "note": ""
+    },
+    {
+      "id": "txn-019",
+      "type": "expense",
+      "amount": 450,
+      "description": "Grocery Run",
+      "category": "Groceries",
+      "date": "2026-01-10",
+      "note": ""
+    },
+    {
+      "id": "txn-020",
+      "type": "expense",
+      "amount": 35,
+      "description": "Movie Night",
+      "category": "Entertainment",
+      "date": "2026-02-14",
+      "note": "Valentine's movie"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "bgt-001",
+      "category": "Housing",
+      "limit": 2000,
+      "spent": 1500,
+      "icon": "home",
+      "color": "#0fb874",
+      "subcategories": ["Rent", "Mortgage", "Insurance"]
+    },
+    {
+      "id": "bgt-002",
+      "category": "Food",
+      "limit": 800,
+      "spent": 720,
+      "icon": "utensils",
+      "color": "#D4AF37",
+      "subcategories": ["Dine out", "Supermarkets"]
+    },
+    {
+      "id": "bgt-003",
+      "category": "Entertainment",
+      "limit": 450,
+      "spent": 550,
+      "icon": "film",
+      "color": "#ef4444",
+      "subcategories": ["Streaming", "Gaming", "Movies"]
+    },
+    {
+      "id": "bgt-004",
+      "category": "Transportation",
+      "limit": 600,
+      "spent": 280,
+      "icon": "car",
+      "color": "#3b82f6",
+      "subcategories": ["Fuel", "Transit", "Maintenance"]
+    },
+    {
+      "id": "bgt-005",
+      "category": "Utilities",
+      "limit": 450,
+      "spent": 395,
+      "icon": "zap",
+      "color": "#f97316",
+      "subcategories": ["Power", "Water", "Internet"]
+    }
+  ],
+  "categories": [
+    "Housing",
+    "Food",
+    "Transportation",
+    "Entertainment",
+    "Utilities",
+    "Software",
+    "Groceries",
+    "Technology",
+    "Healthcare",
+    "Education",
+    "Income",
+    "Salary",
+    "Freelance",
+    "Investment",
+    "Bonus"
+  ]
+}
