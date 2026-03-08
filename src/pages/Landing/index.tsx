@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Logo } from '../../components/ui/Logo';
 import { motion } from 'framer-motion';
 import { BarChart3, PieChart, Shield, ArrowRight } from 'lucide-react';
 
@@ -26,19 +27,15 @@ export default function Landing() {
       {/* Nav */}
       <header className="border-b border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary rounded-lg p-1.5">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                <path d="M16 7V5a4 4 0 0 0-8 0v2" />
-              </svg>
-            </div>
-            <span className="text-lg font-bold">SNAPSHOT</span>
-          </div>
+          <Link to="/" className="flex items-center gap-3 group">
+            <Logo size={32} />
+            <span className="text-xl font-bold text-white tracking-tight group-hover:text-primary transition-colors">
+              PFS
+            </span>
+          </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm text-text-muted">
             <a href="#features" className="hover:text-text-primary transition-colors">Features</a>
             <Link to="/dashboard" className="hover:text-text-primary transition-colors">Dashboard</Link>
-            <a href="#pricing" className="hover:text-text-primary transition-colors">Pricing</a>
           </nav>
           <div className="flex items-center gap-3">
             <Link to="/signin" className="hidden sm:block text-sm text-text-muted hover:text-text-primary transition-colors">
@@ -65,174 +62,135 @@ export default function Landing() {
             <span className="text-primary">Precision</span>
           </h1>
           <p className="text-text-secondary text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Experience a sophisticated approach to asset tracking and financial growth with our premium dashboard designed for the modern elite investor.
+            The definitive platform for sophisticated asset management and wealth tracking. 
+            Experience absolute control over your financial journey.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/signup"
-              className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white font-semibold rounded-full transition-colors text-sm flex items-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary-hover text-white font-bold rounded-2xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group"
             >
-              Start Your Snapshot <ArrowRight size={16} />
+              Start Free Trial
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link
-              to="/dashboard"
-              className="px-8 py-3.5 border border-border text-text-primary font-semibold rounded-full hover:bg-bg-panel transition-colors text-sm"
-            >
+            <button className="w-full sm:w-auto px-8 py-4 bg-bg-panel hover:bg-bg-panel/80 text-white font-semibold rounded-2xl transition-all border border-border">
               View Demo
-            </Link>
+            </button>
           </div>
         </motion.div>
 
+        {/* Mockup Preview */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-16 rounded-2xl overflow-hidden border border-border bg-bg-panel p-1"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-16 md:mt-24 relative"
         >
-          <div className="bg-bg-dark rounded-xl p-8 md:p-12">
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="h-20 rounded-lg bg-primary/10 border border-primary/20" />
-              <div className="h-20 rounded-lg bg-accent-gold/10 border border-accent-gold/20" />
-              <div className="h-20 rounded-lg bg-blue-500/10 border border-blue-500/20" />
-            </div>
-            <div className="flex items-end gap-2 justify-center h-32">
-              {[60, 80, 55, 90, 70, 85, 95].map((h, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ height: 0 }}
-                  animate={{ height: `${h}%` }}
-                  transition={{ duration: 0.5, delay: 0.8 + i * 0.1 }}
-                  className="w-6 md:w-8 bg-primary/80 rounded-t"
-                />
-              ))}
+          <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full scale-75 -z-10" />
+          <div className="bg-bg-panel border border-border rounded-3xl p-4 shadow-2xl">
+            <div className="aspect-[16/9] bg-bg-dark rounded-2xl overflow-hidden border border-border">
+              <div className="p-8 h-full flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <div className="space-y-2">
+                    <div className="h-4 w-32 bg-border rounded" />
+                    <div className="h-8 w-48 bg-primary rounded" />
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="h-10 w-10 bg-border rounded-full" />
+                    <div className="h-10 w-10 bg-border rounded-full" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="h-32 bg-bg-panel border border-border rounded-2xl p-4 space-y-3">
+                    <div className="h-3 w-1/2 bg-border rounded" />
+                    <div className="h-6 w-full bg-primary/20 rounded" />
+                  </div>
+                  <div className="h-32 bg-bg-panel border border-border rounded-2xl p-4 space-y-3">
+                    <div className="h-3 w-1/2 bg-border rounded" />
+                    <div className="h-6 w-full bg-border rounded" />
+                  </div>
+                  <div className="h-32 bg-bg-panel border border-border rounded-2xl p-4 space-y-3">
+                    <div className="h-3 w-1/2 bg-border rounded" />
+                    <div className="h-6 w-full bg-border rounded" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
-
-        {/* Trust bar */}
-        <div className="mt-12 text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-text-muted mb-4">Trusted by modern investors globally</p>
-          <div className="flex items-center justify-center gap-8 text-text-muted text-sm font-medium">
-            <span>💎 LUMIERE</span>
-            <span>📊 VERTEX</span>
-            <span>📈 EQUITY</span>
-            <span>⚙️ ALTOS</span>
-          </div>
-        </div>
       </section>
 
       {/* Features */}
-      <section id="features" className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-          <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-primary font-semibold">Precision Tools</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 leading-tight">
-              Engineered for absolute financial clarity
-            </h2>
+      <section id="features" className="bg-bg-panel/50 py-24 border-y border-border">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Everything You Need</h2>
+            <p className="text-text-secondary max-w-lg mx-auto">
+              Powerful tools designed for serious financial management.
+            </p>
           </div>
-          <p className="text-text-secondary leading-relaxed self-end">
-            Sophisticated features designed to give you a 360-degree view of your net worth across all asset classes.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="bg-bg-panel border border-border rounded-2xl p-6 hover:border-primary/30 transition-colors group"
-            >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-5 group-hover:bg-primary/20 transition-colors">
-                <feature.icon size={20} />
-              </div>
-              <h3 className="text-lg font-bold mb-3">{feature.title}</h3>
-              <p className="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
-              <div className="mt-6 h-32 rounded-xl bg-bg-dark border border-border overflow-hidden" />
-            </motion.div>
-          ))}
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-bg-panel border border-border p-8 rounded-3xl hover:border-primary/50 transition-colors group"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                  <feature.icon size={24} />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white uppercase tracking-tight opacity-90">{feature.title}</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="max-w-4xl mx-auto px-4 md:px-8 py-16 md:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-bg-panel border border-border rounded-3xl p-8 md:p-12 text-center"
-        >
-          <span className="text-xs uppercase tracking-[0.25em] text-primary font-semibold">Ready to start?</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8">
-            Elite wealth management for everyone.
-          </h2>
-          <div className="flex items-center justify-center gap-8 mb-8">
-            <div>
-              <span className="text-xs uppercase tracking-wider text-text-muted font-semibold">Standard Plan</span>
-              <p className="text-4xl font-bold mt-1">$29<span className="text-lg text-text-muted font-normal">/mo</span></p>
-            </div>
-            <div className="w-px h-16 bg-border" />
-            <div>
-              <span className="text-xs uppercase tracking-wider text-primary font-semibold">Elite Snapshot</span>
-              <p className="text-4xl font-bold mt-1">$89<span className="text-lg text-text-muted font-normal">/mo</span></p>
-            </div>
+      {/* CTA */}
+      <section className="py-24">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="bg-gradient-to-br from-primary to-primary-hover p-12 md:p-20 rounded-[48px] shadow-2xl shadow-primary/30 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative z-10"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tighter">Ready to take control?</h2>
+              <p className="text-white/80 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-medium">
+                Simple enough for anyone. Powerful enough for everyone. 
+                Get started today and see the difference.
+              </p>
+              <Link
+                to="/signup"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-primary font-bold rounded-2xl hover:bg-white/90 transition-all shadow-xl active:scale-95"
+              >
+                Create Free Account
+                <ArrowRight size={22} />
+              </Link>
+            </motion.div>
           </div>
-          <Link
-            to="/dashboard"
-            className="inline-block px-10 py-4 bg-primary hover:bg-primary-hover text-white font-semibold rounded-full transition-colors"
-          >
-            Get Started Now
-          </Link>
-          <p className="text-xs text-text-muted mt-4">No credit card required for 14-day trial. 256-bit AES encryption standard.</p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12">
+      <footer className="bg-bg-panel py-16 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-text-muted">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="bg-primary rounded-lg p-1">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path d="M16 7V5a4 4 0 0 0-8 0v2" />
-                  </svg>
-                </div>
-                <span className="text-sm font-bold">SNAPSHOT</span>
+              <div className="flex items-center gap-3 mb-6">
+                <Logo size={28} />
+                <span className="text-lg font-bold text-white tracking-tight">PFS</span>
               </div>
-              <p className="text-xs text-text-muted leading-relaxed">
-                The definitive platform for sophisticated asset management and wealth tracking.
+              <p className="text-xs leading-relaxed max-w-[200px]">
+                The definitive platform for sophisticated wealth tracking.
               </p>
             </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Platform</h4>
-              <ul className="space-y-2 text-xs text-text-muted">
-                <li><a href="#" className="hover:text-text-primary transition-colors">Integrations</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">Security</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">API Support</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Company</h4>
-              <ul className="space-y-2 text-xs text-text-muted">
-                <li><a href="#" className="hover:text-text-primary transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">Journal</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">Careers</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-3">Legal</h4>
-              <ul className="space-y-2 text-xs text-text-muted">
-                <li><a href="#" className="hover:text-text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-text-primary transition-colors">Compliance</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-border pt-6 text-xs text-text-muted">
-            &copy; 2024 Snapshot Financial Inc. All rights reserved.
           </div>
         </div>
       </footer>

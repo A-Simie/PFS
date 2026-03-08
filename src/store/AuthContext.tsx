@@ -49,15 +49,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signIn = useCallback((email: string, password: string) => {
     const users = getStorageItem<StoredUser[]>('users') || [];
-    const found = users.find(
-      (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
-    );
+    const userExists = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
 
-    if (!found) {
-      return { success: false, error: 'Invalid email or password' };
+    if (!userExists) {
+      return { 
+        success: false, 
+        error: 'Account does not exist, use the one used when creating' 
+      };
     }
 
-    const currentUser: User = { fullName: found.fullName, email: found.email };
+    if (userExists.password !== password) {
+      return { success: false, error: 'Invalid password' };
+    }
+
+    const currentUser: User = { fullName: userExists.fullName, email: userExists.email };
     setStorageItem('current_user', currentUser);
     setUser(currentUser);
 

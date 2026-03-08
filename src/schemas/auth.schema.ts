@@ -8,17 +8,11 @@ const passwordSchema = z
   .regex(/[0-9]/, 'Must contain at least one number')
   .regex(/[^A-Za-z0-9]/, 'Must contain at least one special character');
 
-export const signUpSchema = z
-  .object({
-    fullName: z.string().min(2, 'Full name is required'),
-    email: z.string().email('Please enter a valid email address'),
-    password: passwordSchema,
-    confirmPassword: z.string().min(1, 'Please confirm your password'),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
-    path: ['confirmPassword'],
-  });
+export const signUpSchema = z.object({
+  fullName: z.string().min(2, 'Full name is required'),
+  email: z.string().email('Please enter a valid email address'),
+  password: passwordSchema,
+});
 
 export const signInSchema = z.object({
   email: z.string().email('Please enter a valid email address'),

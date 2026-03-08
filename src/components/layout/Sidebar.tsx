@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { Logo } from '../ui/Logo';
 import {
   LayoutDashboard,
   Receipt,
@@ -16,24 +17,21 @@ const navItems = [
 ];
 
 interface SidebarProps {
-  onClose: () => void;
+  onNavigation?: () => void;
 }
 
-export function Sidebar({ onClose }: SidebarProps) {
+export function Sidebar({ onNavigation }: SidebarProps) {
   const { user, signOut } = useAuth();
 
   return (
-    <aside className="w-64 bg-bg-panel border-r border-border flex flex-col h-screen h-[100dvh] overflow-hidden scrollbar-hide">
+    <aside className="w-64 h-full bg-bg-panel border-r border-border flex flex-col">
       {/* Branding */}
-      <div className="p-6 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="bg-primary rounded-lg p-1.5 shadow-lg shadow-primary/20">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-              <path d="M16 7V5a4 4 0 0 0-8 0v2" />
-            </svg>
-          </div>
-          <span className="text-xl font-bold tracking-tight">Finance Pro</span>
+      <div className="p-6">
+        <div className="flex items-center gap-3 mb-10">
+          <Logo size={32} />
+          <span className="text-sm font-bold tracking-tight text-white uppercase opacity-80 leading-tight">
+            Personal Finance<br />Snapshot
+          </span>
         </div>
       </div>
 
@@ -43,10 +41,10 @@ export function Sidebar({ onClose }: SidebarProps) {
           <NavLink
             key={to}
             to={to}
-            onClick={onClose}
+            onClick={onNavigation}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${isActive
-                ? 'bg-primary/10 text-primary'
+                ? 'bg-primary/10 text-primary font-bold'
                 : 'text-text-muted hover:bg-bg-dark hover:text-text-primary'
               }`
             }
@@ -64,7 +62,7 @@ export function Sidebar({ onClose }: SidebarProps) {
             {user?.fullName?.charAt(0) || 'U'}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold truncate">{user?.fullName || 'User Name'}</p>
+            <p className="text-sm font-bold truncate text-white">{user?.fullName || 'User Name'}</p>
             <p className="text-[10px] text-text-muted truncate">Premium Plan</p>
           </div>
           <button
