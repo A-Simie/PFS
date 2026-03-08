@@ -1,6 +1,18 @@
 # 💰 Personal Finance Snapshot
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-View_Live-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://personalfinancesnapshot.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/A-Simie/PFS)
+[![License: MIT](https://img.shields.io/badge/License-MIT-f1c40f?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 A premium, visual-first personal finance tracker designed to help users master their money with style and clarity.
+
+---
+
+## 📸 Preview
+
+![App Dashboard](./public/README_assets/dashboard.png)
+
+---
 
 ## 🚀 Overview
 
@@ -30,6 +42,32 @@ Personal Finance Snapshot is more than just a ledger. It's a high-end financial 
 
 ---
 
+## 💻 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/A-Simie/PFS.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the development server
+   ```sh
+   npm run dev
+   ```
+
+---
+
 ## 🎨 Design Thinking & Choices
 
 Since no mockups were provided, I made intentional choices to create a **state-of-the-art "FinTech" feel**:
@@ -43,13 +81,32 @@ Since no mockups were provided, I made intentional choices to create a **state-o
 
 ## ⚡ Technical Stack
 
-- **Frontend**: React 18 + TypeScript (Strict Mode)
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS (Tailored design system)
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
+- **Frontend**: [React 18](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 - **Persistence**: 100% Client-side (LocalStorage)
-- **State Management**: React Context API + Custom Hooks
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── app/          # App entry and global providers
+├── components/   # Atomic & Layout components (UI, Auth, Charts)
+├── constants/    # Category config and theme tokens
+├── data/         # Default mock data
+├── features/     # Feature-specific logic (Transactions, Budgets)
+├── hooks/        # Custom React hooks
+├── pages/        # Route-level components
+├── schemas/      # Validation & Type definitions
+├── services/     # API/Store interactions
+├── store/        # Context API State Management
+├── styles/       # Global CSS & Tailwind config
+└── utils/        # Business logic helpers (Formatting, Totals)
+```
 
 ---
 
@@ -65,21 +122,20 @@ Standard list animations often feel "jumpy" when items are filtered or added.
 
 ---
 
-## 🔮 What’s Next? (Future Improvements)
-
-If given more time, I would:
-1. **Bank Syncing**: Integrate Plaid or similar APIs for real-time bank feeds.
-2. **Data Export**: Allow users to download their financial snapshots as PDF or CSV.
-3. **Smart Analytics**: Add AI-driven insights to predict overspending based on trends.
-4. **Multi-Currency Support**: For global financial tracking.
-
----
-
 ## ⏱️ Development Time
+
 This project was completed within approximately **2 days** of work.
 
 ---
 
-### 📝 Notes
-- **Persistence**: All data (Transactions, Budgets, Notifications, Auth) is persisted in `localStorage`.
-- **Authenticity**: Every design choice, animation, and UX touch was crafted to feel like a production-ready premium product.
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+## 👨‍💻 Contributor
+
+**Simie Adeb** - [@A-Simie](https://github.com/A-Simie)
+
+Project Link: [https://github.com/A-Simie/PFS](https://github.com/A-Simie/PFS)
