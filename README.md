@@ -76,7 +76,7 @@ If given more time, I would:
 ---
 
 ## ⏱️ Development Time
-This project was completed within approximately **5 days** of work.
+This project was completed within approximately **2 days** of work.
 
 ---
 
