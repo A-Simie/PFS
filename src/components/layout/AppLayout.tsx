@@ -11,7 +11,7 @@ export function AppLayout() {
     <div className="min-h-screen bg-bg-dark text-text-primary flex">
       {/* Sidebar - Desktop Only */}
       <div className="hidden md:block sticky top-0 h-screen flex-shrink-0">
-        <Sidebar onClose={() => {}} />
+        <Sidebar onNavigation={() => {}} />
       </div>
 
       <div className="flex-1 flex flex-col min-w-0">
