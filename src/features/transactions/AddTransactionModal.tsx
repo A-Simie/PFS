@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { transactionSchema, type TransactionSchemaType } from '../../schemas/transaction.schema';
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from '../../constants/categories';
@@ -46,6 +47,29 @@ export function AddTransactionModal({ isOpen, onClose, editingTransaction }: Add
           note: '',
         },
   });
+  useEffect(() => {
+    if (isOpen) {
+      if (editingTransaction) {
+        reset({
+          type: editingTransaction.type,
+          amount: editingTransaction.amount,
+          description: editingTransaction.description,
+          category: editingTransaction.category,
+          date: editingTransaction.date,
+          note: editingTransaction.note || '',
+        });
+      } else {
+        reset({
+          type: 'expense',
+          amount: 0,
+          description: '',
+          category: '',
+          date: new Date().toISOString().split('T')[0],
+          note: '',
+        });
+      }
+    }
+  }, [isOpen, editingTransaction, reset]);
 
   const currentType = watch('type');
   const categories = currentType === 'income' ? INCOME_CATEGORIES : EXPENSE_CATEGORIES;
@@ -78,26 +102,28 @@ export function AddTransactionModal({ isOpen, onClose, editingTransaction }: Add
   return (
     <Modal isOpen={isOpen} onClose={handleClose} title={isEditing ? 'Edit Transaction' : 'Add Transaction'}>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-        <div className="flex rounded-xl overflow-hidden border border-border">
+        <div className={`flex rounded-xl overflow-hidden border border-border ${isEditing ? 'opacity-60 cursor-not-allowed' : ''}`}>
           <button
             type="button"
+            disabled={isEditing}
             onClick={() => { setValue('type', 'expense'); setValue('category', ''); }}
             className={`flex-1 py-3 text-sm font-semibold transition-colors ${
               currentType === 'expense'
                 ? 'bg-primary text-white'
                 : 'bg-bg-dark text-text-muted hover:text-text-primary'
-            }`}
+            } ${isEditing ? 'cursor-not-allowed' : ''}`}
           >
             Expense
           </button>
           <button
             type="button"
+            disabled={isEditing}
             onClick={() => { setValue('type', 'income'); setValue('category', ''); }}
             className={`flex-1 py-3 text-sm font-semibold transition-colors ${
               currentType === 'income'
                 ? 'bg-primary text-white'
                 : 'bg-bg-dark text-text-muted hover:text-text-primary'
-            }`}
+            } ${isEditing ? 'cursor-not-allowed' : ''}`}
           >
             Income
           </button>
