@@ -181,13 +181,13 @@ export default function Landing() {
       {/* Footer */}
       <footer className="bg-bg-panel py-16 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-text-muted">
+          <div className="flex flex-col items-center text-center mb-8 text-text-muted">
             <div>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <Logo size={28} />
                 <span className="text-lg font-bold text-white tracking-tight">PFS</span>
               </div>
-              <p className="text-xs leading-relaxed max-w-[200px]">
+              <p className="text-xs leading-relaxed max-w-[200px] mx-auto">
                 The definitive platform for sophisticated wealth tracking.
               </p>
             </div>
