@@ -24,7 +24,7 @@ const features = [
 export default function Landing() {
   return (
     <div className="min-h-screen bg-bg-dark text-text-primary">
-      {/* Nav */}
+
       <header className="border-b border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
@@ -62,7 +62,7 @@ export default function Landing() {
             <span className="text-primary">Precision</span>
           </h1>
           <p className="text-text-secondary text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            The definitive platform for sophisticated asset management and wealth tracking. 
+            The definitive platform for sophisticated asset management and wealth tracking.
             Experience absolute control over your financial journey.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -79,7 +79,6 @@ export default function Landing() {
           </div>
         </motion.div>
 
-        {/* Mockup Preview */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -163,7 +162,7 @@ export default function Landing() {
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tighter">Ready to take control?</h2>
               <p className="text-white/80 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-medium">
-                Simple enough for anyone. Powerful enough for everyone. 
+                Simple enough for anyone. Powerful enough for everyone.
                 Get started today and see the difference.
               </p>
               <Link
@@ -178,7 +177,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-bg-panel py-16 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <div className="flex flex-col items-center text-center mb-8 text-text-muted">

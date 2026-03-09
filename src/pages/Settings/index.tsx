@@ -1,16 +1,27 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trash2, AlertTriangle } from 'lucide-react';
+import { Trash2, AlertTriangle, LogOut } from 'lucide-react';
 import { clearAllStorage } from '../../services/storage';
+import { useAuth } from '../../store/AuthContext';
 import { Card } from '../../components/ui/Card';
 import { Modal } from '../../components/ui/Modal';
 
 export default function Settings() {
+  const { user, signOut } = useAuth();
   const [showResetModal, setShowResetModal] = useState(false);
 
   const handleReset = () => {
     clearAllStorage();
     window.location.reload();
+  };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
   };
 
   return (
@@ -25,14 +36,26 @@ export default function Settings() {
         <p className="text-text-secondary text-sm mb-4">Manage your account information.</p>
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg">
-            AR
+            {user?.fullName ? getInitials(user.fullName) : '??'}
           </div>
           <div>
-            <p className="font-semibold">Alex Rivera</p>
-            <p className="text-sm text-text-muted">alex.rivera@email.com</p>
+            <p className="font-semibold">{user?.fullName || 'User'}</p>
+            <p className="text-sm text-text-muted">{user?.email || 'No email set'}</p>
             <span className="text-xs text-primary font-medium">Premium Plan</span>
           </div>
         </div>
+      </Card>
+
+      <Card className="p-6">
+        <h3 className="text-lg font-bold mb-2">Account Actions</h3>
+        <p className="text-text-secondary text-sm mb-4">Manage your active session securely.</p>
+        <button
+          onClick={signOut}
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-bg-panel border border-border text-text-primary font-semibold rounded-xl text-sm hover:bg-bg-dark transition-colors w-full sm:w-auto"
+        >
+          <LogOut size={16} />
+          Sign Out
+        </button>
       </Card>
 
       <Card className="p-6 border-danger/20">
